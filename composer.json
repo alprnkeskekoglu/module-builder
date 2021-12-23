@@ -1,0 +1,19 @@
+{
+    "name": "dawnstar/module-builder",
+    "description": "Module Builder for Dawnstar CMS",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Dawnstar\\ModuleBuilder\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dawnstar\\ModuleBuilder\\ModuleBuilderServiceProvider"
+            ]
+        }
+    }
+}
