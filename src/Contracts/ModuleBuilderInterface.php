@@ -2,8 +2,8 @@
 
 namespace Dawnstar\ModuleBuilder\Contracts;
 
-use Dawnstar\Models\ModuleBuilder;
-use Dawnstar\Models\Structure;
+use Dawnstar\Core\Models\ModuleBuilder;
+use Dawnstar\Core\Models\Structure;
 use Illuminate\Database\Eloquent\Collection;
 
 interface ModuleBuilderInterface

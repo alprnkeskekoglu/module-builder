@@ -2,11 +2,11 @@
 
 namespace Dawnstar\ModuleBuilder\Services;
 
-use Dawnstar\Models\Category;
-use Dawnstar\Models\Language;
+use Dawnstar\Core\Models\Category;
+use Dawnstar\Core\Models\Language;
 use Dawnstar\ModuleBuilder\Models\ModuleBuilder;
-use Dawnstar\Models\Page;
-use Dawnstar\Models\Structure;
+use Dawnstar\Core\Models\Page;
+use Dawnstar\Core\Models\Structure;
 use Dawnstar\Region\Models\Country;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -180,7 +180,7 @@ class ModuleBuilderService
         } elseif ($input['element'] == 'relation') {
             return $this->model->customPages($name)->pluck('id')->toArray();
         } elseif ($input['element'] == 'category') {
-            return $this->model->categories->pluck('id')->toArray();
+            return $this->model ? $this->model->categories->pluck('id')->toArray() : [];
         }
 
         return old($input['name'], ($this->model ? $this->model->{$name} : null));

@@ -3,7 +3,7 @@
 namespace {&namespace&};
 
 use App\Http\Controllers\Controller;
-use Dawnstar\Foundation\Dawnstar;
+use Dawnstar\Core\Foundation\Dawnstar;
 
 class {&class&} extends Controller
 {

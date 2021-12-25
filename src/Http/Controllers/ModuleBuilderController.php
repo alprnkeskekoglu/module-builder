@@ -2,17 +2,17 @@
 
 namespace Dawnstar\ModuleBuilder\Http\Controllers;
 
-use Dawnstar\Http\Controllers\BaseController;
-use Dawnstar\Http\Requests\StructureRequest;
-use Dawnstar\Models\Container;
-use Dawnstar\Models\ContainerTranslation;
+use Dawnstar\Core\Http\Controllers\BaseController;
+use Dawnstar\Core\Http\Requests\StructureRequest;
+use Dawnstar\Core\Models\Container;
+use Dawnstar\Core\Models\ContainerTranslation;
 use Dawnstar\ModuleBuilder\Models\ModuleBuilder;
-use Dawnstar\Models\Structure;
+use Dawnstar\Core\Models\Structure;
 use Dawnstar\Region\Models\Country;
-use Dawnstar\Repositories\ContainerRepository;
-use Dawnstar\Repositories\ContainerTranslationRepository;
+use Dawnstar\Core\Repositories\ContainerRepository;
+use Dawnstar\Core\Repositories\ContainerTranslationRepository;
 use Dawnstar\ModuleBuilder\Repositories\ModuleBuilderRepository;
-use Dawnstar\Repositories\StructureRepository;
+use Dawnstar\Core\Repositories\StructureRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -63,22 +63,22 @@ class ModuleBuilderController extends BaseController
     public function getTranslations()
     {
         $return = [
-            'back' => __('Dawnstar::general.back'),
-            'save' => __('Dawnstar::general.save'),
-            'add_new' => __('Dawnstar::general.add_new'),
-            'yes' => __('Dawnstar::general.yes'),
-            'no' => __('Dawnstar::general.no'),
-            'required' => __('Dawnstar::general.required'),
-            'translation' => __('Dawnstar::module_builder.translation'),
-            'type' => __('Dawnstar::module_builder.type'),
-            'name' => __('Dawnstar::module_builder.name'),
-            'col' => __('Dawnstar::module_builder.col'),
-            'label' => __('Dawnstar::module_builder.label'),
-            'max_count' => __('Dawnstar::module_builder.max_count'),
-            'selectable' => __('Dawnstar::module_builder.selectable'),
-            'rules' => __('Dawnstar::module_builder.rules'),
-            'options' => __('Dawnstar::module_builder.options'),
-            'queries' => __('Dawnstar::module_builder.queries'),
+            'back' => __('Core::general.back'),
+            'save' => __('Core::general.save'),
+            'add_new' => __('Core::general.add_new'),
+            'yes' => __('Core::general.yes'),
+            'no' => __('Core::general.no'),
+            'required' => __('Core::general.required'),
+            'translation' => __('ModuleBuilder::general.translation'),
+            'type' => __('ModuleBuilder::general.type'),
+            'name' => __('ModuleBuilder::general.name'),
+            'col' => __('ModuleBuilder::general.col'),
+            'label' => __('ModuleBuilder::general.label'),
+            'max_count' => __('ModuleBuilder::general.max_count'),
+            'selectable' => __('ModuleBuilder::general.selectable'),
+            'rules' => __('ModuleBuilder::general.rules'),
+            'options' => __('ModuleBuilder::general.options'),
+            'queries' => __('ModuleBuilder::general.queries'),
         ];
 
         return response()->json(['translations' => $return]);

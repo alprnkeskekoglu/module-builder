@@ -1,7 +1,7 @@
-@extends('Dawnstar::layouts.app')
+@extends('Core::layouts.app')
 
 @section('content')
-    @include('Dawnstar::includes.page_header',['headerTitle' => __('ModuleBuilder::general.title.index')])
+    @include('Core::includes.page_header',['headerTitle' => __('ModuleBuilder::general.title.index')])
     <div class="row" id="moduleBuilder">
         <div class="col-12">
             <div class="card">
@@ -9,7 +9,7 @@
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('dawnstar.module_builders.index') }}" class="btn btn-secondary">
                             <i class="mdi mdi-arrow-left"></i>
-                            @lang('Dawnstar::general.back')
+                            @lang('Core::general.back')
                         </a>
                         <div>
                             <buttons-component></buttons-component>
@@ -34,5 +34,5 @@
         window.module_builder_id = '{{ $moduleBuilder->id }}'
         window.language_id = '{{ session('dawnstar.language.id') }}'
     </script>
-    <script src="{{ asset('vendor/module_builder/assets/js/builder.js') }}"></script>
+    <script src="{{ asset('vendor/dawnstar/module_builder/js/builder.js') }}"></script>
 @endpush

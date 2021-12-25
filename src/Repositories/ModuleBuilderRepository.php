@@ -4,7 +4,7 @@ namespace Dawnstar\ModuleBuilder\Repositories;
 
 use Dawnstar\ModuleBuilder\Contracts\ModuleBuilderInterface;
 use Dawnstar\ModuleBuilder\Models\ModuleBuilder;
-use Dawnstar\Models\Structure;
+use Dawnstar\Core\Models\Structure;
 use Dawnstar\ModuleBuilder\Services\ModuleFileService;
 use Illuminate\Database\Eloquent\Collection;
 

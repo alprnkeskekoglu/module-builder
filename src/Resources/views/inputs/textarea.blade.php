@@ -43,8 +43,8 @@
 
 @once
     @push('scripts')
-        <script src="{{ asset('vendor/dawnstar/assets/plugins/ckeditor/ckeditor.js') }}"></script>
-        <script src="{{ asset('vendor/dawnstar/assets/plugins/ckeditor/lang/' . session('dawnstar.language.code') . '.js') }}"></script>
+        <script src="{{ asset('vendor/dawnstar/core/plugins/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('vendor/dawnstar/core/plugins/ckeditor/lang/' . session('dawnstar.language.code') . '.js') }}"></script>
         <script>
             var editors = document.querySelectorAll('textarea[data-type="ckeditor"]');
             for (var i = 0; i < editors.length; ++i) {

@@ -1,7 +1,7 @@
-@extends('Dawnstar::layouts.app')
+@extends('Core::layouts.app')
 
 @section('content')
-    @include('Dawnstar::includes.page_header',['headerTitle' => __('Dawnstar::admin.title.index')])
+    @include('Core::includes.page_header',['headerTitle' => __('Core::admin.title.index')])
 
     <div class="row">
         <div class="col-12">
@@ -14,7 +14,7 @@
                                 <th>#</th>
                                 <th>@lang('ModuleBuilder::general.labels.structure')</th>
                                 <th>@lang('ModuleBuilder::general.labels.type')</th>
-                                <th>@lang('Dawnstar::general.actions')</th>
+                                <th>@lang('Core::general.actions')</th>
                             </tr>
                             </thead>
                             <tbody>

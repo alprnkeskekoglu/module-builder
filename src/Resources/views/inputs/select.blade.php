@@ -6,10 +6,10 @@
                         {{ $input['type'] == 'multiple' ? 'multiple' : '' }}
                         name="{{ $input['name'][$language->id] . ($input['type'] == 'multiple' ? '[]' : '') }}"
                         data-type="select2"
-                        data-placeholder="@lang('Dawnstar::general.select')"
+                        data-placeholder="@lang('Core::general.select')"
                         id="{{ $input['id'][$language->id] }}">
                         @if($input['type'] != 'multiple')
-                            <option value="">@lang('Dawnstar::general.select')</option>
+                            <option value="">@lang('Core::general.select')</option>
                         @endif
                         @foreach($input['options'] as $value => $label)
                             <option value="{{ $value }}" {{ in_array($value, (is_array($input['value'][$language->id]) ? $input['value'][$language->id] : [$input['value'][$language->id]])) ? 'selected' : '' }}>{{ $label }}</option>
@@ -29,10 +29,10 @@
                     {{ $input['type'] == 'multiple' ? 'multiple' : '' }}
                     name="{{ $input['name'] . ($input['type'] == 'multiple' ? '[]' : '') }}"
                     data-type="select2"
-                    data-placeholder="@lang('Dawnstar::general.select')"
+                    data-placeholder="@lang('Core::general.select')"
                     id="{{ $input['id'] }}">
                 @if($input['type'] != 'multiple')
-                    <option value="">@lang('Dawnstar::general.select')</option>
+                    <option value="">@lang('Core::general.select')</option>
                 @endif
                 @foreach($input['options'] as $value => $label)
                     <option value="{{ $value }}" {{ in_array($value, (is_array($input['value']) ? $input['value'] : [$input['value']])) ? 'selected' : '' }}>{{ $label }}</option>

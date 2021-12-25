@@ -4,7 +4,7 @@
                 multiple
                 name="{{ $input['name'] }}[]"
                 data-type="category"
-                data-placeholder="{{ __('Dawnstar::general.select') }}"
+                data-placeholder="{{ __('Core::general.select') }}"
                 id="{{ $input['id'] }}">
             @foreach($input['options'] as $value => $label)
                 <option value="{{ $value }}" {{ in_array($value, $input['value']) ? 'selected' : '' }}>{{ $label }}</option>

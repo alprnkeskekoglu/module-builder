@@ -5,7 +5,7 @@ return [
         'translation' => false,
         'name' => 'status',
         'element' => 'radio',
-        'parent_class' => 'col-lg-6',
+        'parent_class' => 'col-lg-12',
         'labels' => [
             '164' => 'Durum',
             '40' => 'Status',

@@ -2,8 +2,8 @@
 
 namespace Dawnstar\ModuleBuilder\Services;
 
-use Dawnstar\Models\Website;
-use Dawnstar\Models\Structure;
+use Dawnstar\Core\Models\Website;
+use Dawnstar\Core\Models\Structure;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
