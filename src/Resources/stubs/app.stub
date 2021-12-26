@@ -15,6 +15,9 @@
 </head>
 
 <body>
+
+@yield('content')
+
 <!-- Scripts Start -->
 @stack('scripts')
 <!-- Scripts End -->

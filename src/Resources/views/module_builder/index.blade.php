@@ -1,7 +1,7 @@
 @extends('Core::layouts.app')
 
 @section('content')
-    @include('Core::includes.page_header',['headerTitle' => __('Core::admin.title.index')])
+    @include('Core::includes.page_header',['headerTitle' => __('ModuleBuilder::general.title.index')])
 
     <div class="row">
         <div class="col-12">
