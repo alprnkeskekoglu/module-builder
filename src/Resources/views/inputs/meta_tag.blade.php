@@ -10,7 +10,7 @@
             @endphp
             <div class="previewBox hasLanguage {{ $loop->first ? '' : 'd-none' }}" data-language="{{ $language->id }}">
                 <div class="d-flex justify-content-center">
-                    <div class="preview col-md-6 border border-2 mb-4 p-2 w-50">
+                    <div class="preview border border-2 mb-4 p-2 w-auto">
                         <span class="text-dark slug" data-domain="{{ $url }}">{{ $url }}</span>
                         <button class="text-muted">▼</button>
                         <h2 class="title"></h2>

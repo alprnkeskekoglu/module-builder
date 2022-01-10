@@ -63,7 +63,7 @@ class ModuleBuilderService
     private function getInputHtml(array $input): string
     {
         $whiteList = [
-            'input', 'slug', 'textarea', 'radio', 'checkbox', 'select', 'country', 'media', 'relation', 'category'
+            'input', 'slug', 'textarea', 'radio', 'checkbox', 'select', 'country', 'media', 'relation', 'category', 'property'
         ];
 
         if (!in_array($input['element'], $whiteList)) {
@@ -108,10 +108,11 @@ class ModuleBuilderService
             $input['key'] = "relations.{$input['name']}";
             $input['name'] = "relations[{$input['name']}]";
         } elseif ($element == 'category') {
-            $input['id'] = "categories";
+            $input['id'] = $input['key'] = $input['name'] = "categories";
             $input['column'] = $input['name'];
-            $input['key'] = "categories";
-            $input['name'] = "categories";
+        } elseif ($element == 'property') {
+            $input['id'] = $input['key'] = $input['name'] = "properties";
+            $input['column'] = $input['name'];
         }
 
         $name = $id = $key = [];
@@ -181,6 +182,8 @@ class ModuleBuilderService
             return $this->model->customPages($name)->pluck('id')->toArray();
         } elseif ($input['element'] == 'category') {
             return $this->model ? $this->model->categories->pluck('id')->toArray() : [];
+        } elseif ($input['element'] == 'property') {
+            return $this->model ? $this->model->propertyOptions->pluck('id')->toArray() : [];
         }
 
         return old($input['name'], ($this->model ? $this->model->{$name} : null));

@@ -7,7 +7,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-lg-12" v-if="['relation', 'category'].indexOf($root.current.element) === -1">
+                            <div class="col-lg-12" v-if="['relation', 'category', 'property'].indexOf($root.current.element) === -1">
                                 <label class="form-label">{{ $root.trans.translation }}</label>
                                 <div class="mb-3">
                                     <div class="form-check form-check-inline">
@@ -44,7 +44,7 @@
                             <div :class="types[$root.current.element] != undefined ? 'col-ld-12' : 'col-lg-6'">
                                 <div class="form-floating mb-3">
                                     <input type="text" :class="'form-control ' + (errors.name ? 'is-invalid' : '')"
-                                           :disabled="['category'].indexOf($root.current.element) !== -1"
+                                           :disabled="['category', 'property'].indexOf($root.current.element) !== -1"
                                            id="name"
                                            v-model="$root.current.name">
                                     <label for="name">{{ $root.trans.name }}</label>
@@ -234,7 +234,7 @@ export default {
             if(!this.$root.current.type && this.$root.current.element == 'input') {
                 this.errors['type'] = true;
             }
-            if(!this.$root.current.name && ['category'].indexOf(this.$root.current.element) === -1) {
+            if(!this.$root.current.name && ['category', 'property'].indexOf(this.$root.current.element) === -1) {
                 this.errors['name'] = true;
             }
 

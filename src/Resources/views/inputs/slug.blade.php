@@ -13,9 +13,11 @@
                    value="/{{ ltrim(($input['value'][$language->id] ?? ''), '/') }}"
                    id="{{ $input['id'][$language->id] }}" data-language="{{ $language->id }}"/>
             <label for="{{ $input['id'][$language->id] }}">{{ $input['label'][$language->id] }}</label>
+            @if($type != 'property')
             <div class="help-block text-muted ms-2">
                 {{ "/{$language->code}" . ($type != 'container' ? "/{$containerTranslation->slug}" : '') }}<span>/{{ ltrim(($input['value'][$language->id] ?? ''), '/') }}</span>
             </div>
+            @endif
             @if($errors->has($input['key'][$language->id]))
                 <div class="invalid-feedback">
                     {{ $errors->first($input['key'][$language->id]) }}
