@@ -6,7 +6,8 @@
         @foreach($languages as $language)
             @php
                 $containerTranslation = $structure->container->translations()->where('language_id', $language->id)->first();
-                $url = request()->root() . '/' . $language->code . ($type != 'container' ? "/{$containerTranslation->slug}" : '')
+                $website = session('dawnstar.website');
+                $url = request()->root() . ($website->url_language_code != 1 && $website->defaultLanguage()->id == $language->id ? '' : "/{$language->code}") . ($type != 'container' ? "/{$containerTranslation->slug}" : '')
             @endphp
             <div class="previewBox hasLanguage {{ $loop->first ? '' : 'd-none' }}" data-language="{{ $language->id }}">
                 <div class="d-flex justify-content-center">
