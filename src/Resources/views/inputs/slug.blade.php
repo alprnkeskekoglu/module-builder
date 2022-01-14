@@ -16,7 +16,7 @@
             <label for="{{ $input['id'][$language->id] }}">{{ $input['label'][$language->id] }}</label>
             @if($type != 'property')
                 <div class="help-block text-muted ms-2">
-                    {{ "/" . ($website->url_language_code != 1 && $website->defaultLanguage()->id == $language->id ? '' : $language->code) . ($type != 'container' ? "/{$containerTranslation->slug}" : '') }}<span>/{{ ltrim(($input['value'][$language->id] ?? ''), '/') }}</span>
+                    {{ ($website->url_language_code != 1 && $website->defaultLanguage()->id == $language->id ? '' : "/{$language->code}") . ($type != 'container' ? "/{$containerTranslation->slug}" : '') }}<span>/{{ ltrim(($input['value'][$language->id] ?? ''), '/') }}</span>
                 </div>
             @endif
             @if($errors->has($input['key'][$language->id]))
