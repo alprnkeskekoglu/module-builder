@@ -176,10 +176,10 @@ class ModuleBuilderService
     {
         $name = $input['name'];
 
-        if ($this->model && $input['element'] == 'media') {
-            return $this->model->medias()->wherePivot('key', $name)->orderBy('model_medias.order')->pluck('id')->toArray();
+        if ($input['element'] == 'media') {
+            return $this->model ? $this->model->medias()->wherePivot('key', $name)->orderBy('model_medias.order')->pluck('id')->toArray() : [];
         } elseif ($input['element'] == 'relation') {
-            return $this->model->customPages($name)->pluck('id')->toArray();
+            return $this->model ? $this->model->customPages($name)->pluck('id')->toArray() : [];
         } elseif ($input['element'] == 'category') {
             return $this->model ? $this->model->categories->pluck('id')->toArray() : [];
         } elseif ($input['element'] == 'property') {
@@ -245,20 +245,20 @@ class ModuleBuilderService
     private function setAttributes(array &$attributes, array $input)
     {
         $element = $input['element'] ?? null;
-        $panelLanguage = session('dawnstar.language');
+        $panelLanguageId = session('dawnstar.language.id');
 
         if ($input['translation'] == 'true') {
             foreach ($this->languages as $language) {
                 if ($element == 'media') {
-                    $attributes["translations.{$language->id}.medias.{$input['name']}"] = $input['labels'][$panelLanguage->id] . ' (' . strtoupper($language->code) . ')';
+                    $attributes["translations.{$language->id}.medias.{$input['name']}"] = $input['labels'][$panelLanguageId] . ' (' . strtoupper($language->code) . ')';
                 } else {
-                    $attributes["translations.{$language->id}.{$input['name']}"] = $input['labels'][$panelLanguage->id] . ' (' . strtoupper($language->code) . ')';
+                    $attributes["translations.{$language->id}.{$input['name']}"] = $input['labels'][$panelLanguageId] . ' (' . strtoupper($language->code) . ')';
                 }
             }
         } elseif ($element == 'media') {
-            $attributes["medias.{$input['name']}"] = $input['labels'][$panelLanguage->id];
+            $attributes["medias.{$input['name']}"] = $input['labels'][$panelLanguageId];
         } else {
-            $attributes[$input['name']] = $input['labels'][$panelLanguage->id];
+            $attributes[$input['name']] = $input['labels'][$panelLanguageId];
         }
     }
     #endregion
