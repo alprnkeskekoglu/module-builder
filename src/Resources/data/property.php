@@ -2,7 +2,7 @@
 
 return [
     [
-        'translation' => false,
+        'translation' => 'false',
         'name' => 'status',
         'element' => 'radio',
         'parent_class' => 'col-lg-12',
@@ -31,7 +31,7 @@ return [
         ]
     ],
     [
-        'translation' => true,
+        'translation' => 'true',
         'name' => 'name',
         'element' => 'input',
         'type' => 'text',
@@ -41,11 +41,11 @@ return [
             '40' => 'Name',
         ],
         'rules' => [
-            'required', 'min:2'
+            'required_if:languages.*,1'
         ]
     ],
     [
-        'translation' => true,
+        'translation' => 'true',
         'name' => 'slug',
         'element' => 'slug',
         'parent_class' => 'col-lg-6',

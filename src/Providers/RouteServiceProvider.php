@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapPanelRoutes()
     {
-        Route::group(['middleware' => 'web', 'prefix' => 'dawnstar', 'as' => 'dawnstar.'], function ($router) {
+        Route::group(['middleware' => ['web', 'dawnstar_auth', 'default_website'], 'prefix' => 'dawnstar', 'as' => 'dawnstar.'], function ($router) {
             require __DIR__ . '/../Routes/panel.php';
         });
     }

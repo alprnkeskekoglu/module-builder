@@ -23,7 +23,7 @@
 
                     <div class="row">
                         @foreach($tags as $tag)
-                            <div class="col-lg-6">
+                            <div class="col-lg-{{ count($tags) % 2 == 1 && $loop->last ? '12' : '6' }}">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control meta_tags"
                                            data-key="{{ $tag['key'] }}"

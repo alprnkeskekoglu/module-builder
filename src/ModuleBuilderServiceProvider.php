@@ -16,7 +16,7 @@ class ModuleBuilderServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
         $this->loadViewsFrom(__DIR__ . '/Resources/views', 'ModuleBuilder');
-        $this->loadTranslationsFrom(__DIR__ . '/Resources/lang', 'ModuleBuilder');
+        $this->loadTranslationsFrom(__DIR__ . '/Lang', 'ModuleBuilder');
 
         $this->publishes([__DIR__ . '/Assets' => public_path('vendor/dawnstar/module_builder')], 'dawnstar-module-builder-assets');
     }

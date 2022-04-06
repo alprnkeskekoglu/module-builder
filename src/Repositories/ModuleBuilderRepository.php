@@ -10,6 +10,11 @@ use Illuminate\Database\Eloquent\Collection;
 
 class ModuleBuilderRepository implements ModuleBuilderInterface
 {
+    public function getById(int $id): ModuleBuilder
+    {
+        return ModuleBuilder::findOrFail($id);
+    }
+
     public function getAll(): Collection
     {
         return ModuleBuilder::all();
@@ -17,11 +22,7 @@ class ModuleBuilderRepository implements ModuleBuilderInterface
 
     public function store(Structure $structure): void
     {
-        $types = [];
-
-        if ($structure->has_detail) {
-            $types[] = 'container';
-        }
+        $types = ['container'];
 
         if ($structure->type == 'dynamic') {
             $types[] = 'page';
@@ -43,13 +44,25 @@ class ModuleBuilderRepository implements ModuleBuilderInterface
                 [
                     'structure_id' => $structure->id,
                     'type' => $type,
+                ],
+                [
                     'data' => $data,
-                    'meta_tags' => ['title', 'description']
+                    'meta_tags' => ['robots', 'title', 'description']
                 ]
             );
         }
 
         $this->createFiles($structure);
+    }
+
+    public function update(ModuleBuilder $moduleBuilder): void
+    {
+        $data = request('data');
+        $metaTags = request('meta_tags');
+        $moduleBuilder->update([
+            'data' => $data,
+            'meta_tags' => $metaTags
+        ]);
     }
 
     public function createFiles(Structure $structure): void
