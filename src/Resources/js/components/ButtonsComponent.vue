@@ -19,6 +19,32 @@ export default {
     name: "ElementListComponent",
     methods: {
         showModal(element) {
+            this.$root.current = {
+                translation: false,
+                element: null,
+                type: null,
+                name: null,
+                parent_class: "col-lg-12",
+                class: null,
+                labels: {40: null, 164: null},
+                rules: [],
+                options: [
+                    {
+                        key: null,
+                        value: {
+                            164: null,
+                            40: null
+                        }
+                    }
+                ],
+                queries: [
+                    {
+                        0: null,
+                        1: null,
+                        2: null
+                    }
+                ],
+            };
             this.$root.current.element = element;
             this.$root.new_element = true;
             var elementModal = new bootstrap.Modal(document.getElementById('elementModal'));

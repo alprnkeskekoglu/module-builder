@@ -3,27 +3,14 @@
 namespace Dawnstar\ModuleBuilder\Http\Controllers;
 
 use Dawnstar\Core\Http\Controllers\BaseController;
-use Dawnstar\Core\Http\Requests\StructureRequest;
-use Dawnstar\Core\Models\Container;
-use Dawnstar\Core\Models\ContainerTranslation;
 use Dawnstar\ModuleBuilder\Models\ModuleBuilder;
-use Dawnstar\Core\Models\Structure;
-use Dawnstar\Region\Models\Country;
-use Dawnstar\Core\Repositories\ContainerRepository;
-use Dawnstar\Core\Repositories\ContainerTranslationRepository;
 use Dawnstar\ModuleBuilder\Repositories\ModuleBuilderRepository;
-use Dawnstar\Core\Repositories\StructureRepository;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class ModuleBuilderController extends BaseController
 {
-    protected ModuleBuilderRepository $moduleBuilderRepository;
-
-    public function __construct(ModuleBuilderRepository $moduleBuilderRepository)
-    {
-        $this->moduleBuilderRepository = $moduleBuilderRepository;
-    }
+    public function __construct(protected ModuleBuilderRepository $moduleBuilderRepository)
+    {}
 
     public function index()
     {
@@ -38,17 +25,13 @@ class ModuleBuilderController extends BaseController
         return view('ModuleBuilder::module_builder.edit', compact('moduleBuilder'));
     }
 
-    public function update(ModuleBuilder $moduleBuilder, Request $request)
+    public function update(ModuleBuilder $moduleBuilder)
     {
         canUser("structure.{$moduleBuilder->structure->id}.edit");
 
-        $data = $request->get('data');
-        $metaTags = $request->get('meta_tags');
+        $this->moduleBuilderRepository->update($moduleBuilder);
 
-        $moduleBuilder->update([
-            'data' => $data,
-            'meta_tags' => $metaTags
-        ]);
+        Cache::flush();
 
         return response()->json(['success' => __('ModuleBuilder::general.success.update')]);
     }
